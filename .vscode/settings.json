@@ -12,6 +12,8 @@
     "kmeans",
     "numpy",
     "plotly",
-    "scipy"
+    "pytest",
+    "scipy",
+    "sprt"
   ]
 }
