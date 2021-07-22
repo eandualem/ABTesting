@@ -137,7 +137,7 @@ def abplot(N_A, N_B, bcr, d_hat, sig_level=0.05, show_power=False,
     # show p_value based on the binomial distributions for the two groups
     if show_p_value:
         null = ab_dist(stderr, 'control')
-        p_value = p_val(N_A, N_B, bcr, bcr+d_hat)
+        p_value = p_val(N_A, N_B, bcr, d_hat)
         ax.text(3 * stderr, null.pdf(0),
                 'p-value = {0:.3f}'.format(p_value),
                 fontsize=12, ha='left')

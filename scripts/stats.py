@@ -13,6 +13,7 @@ def pooled_SE(N_A, N_B, X_A, X_B):
     SE = np.sqrt(p_hat * (1 - p_hat) * (1 / N_A + 1 / N_B))
     return SE
 
+
 def confidence_interval(sample_mean=0, sample_std=1, sample_size=1,
                         sig_level=0.05):
     """Returns the confidence interval as a tuple"""
@@ -95,6 +96,10 @@ def min_sample_size(bcr, mde, power=0.8, sig_level=0.05):
     return min_N
 
 
-def p_val(N_A, N_B, p_A, p_B):
+def p_val(N_A, N_B, p_A, d_hat):
     """Returns the p-value for an A/B test"""
-    return scs.binom(N_A, p_A).pmf(p_B * N_B)
+    std_a = np.sqrt(p_A * (1 - p_A) / N_A)
+    std_b = np.sqrt((p_A+d_hat) * (1 - (p_A+d_hat)) / N_B)
+    z_score = (d_hat) / np.sqrt(std_a**2 + std_b**2)
+    return scs.norm().sf(z_score)
+    # return scs.binom(N_A, p_A).pmf(p_B * N_B)
