@@ -166,17 +166,17 @@ def show_area(ax, d_hat, stderr, sig_level, area_type='power'):
     # Fill between upper significance boundary and distribution for alternative
     # hypothesis
     if area_type == 'power':
-        ax.fill_between(x, 0, alternative.pdf(x), color='green', alpha=0.25,
+        ax.fill_between(x, 0, alternative.pdf(x), color='blue', alpha=0.25,
                         where=(x > right))
         ax.text(-3 * stderr, y*1,
                 'power = {0:.3f}'.format(1 - alternative.cdf(right)),
-                fontsize=12, ha='right', color='green')
+                fontsize=12, ha='right', color='blue')
 
     # if area_type is alpha
     # Fill between upper significance boundary and distribution for null
     # hypothesis
     if area_type == 'alpha':
-        ax.fill_between(x, 0, null.pdf(x), color='green', alpha=0.25,
+        ax.fill_between(x, 0, null.pdf(x), color='red', alpha=0.25,
                         where=(x > right))
         ax.text(-3 * stderr, y*0.8,
                 'alpha = {0:.3f}'.format(1 - null.cdf(right)),
@@ -186,7 +186,7 @@ def show_area(ax, d_hat, stderr, sig_level, area_type='power'):
     # Fill between distribution for alternative hypothesis and upper
     # significance boundary
     if area_type == 'beta':
-        ax.fill_between(x, 0, alternative.pdf(x), color='green', alpha=0.25,
+        ax.fill_between(x, 0, alternative.pdf(x), color='gray', alpha=0.25,
                         where=(x < right))
         ax.text(-3 * stderr, y*0.6,
                 'beta = {0:.3f}'.format(alternative.cdf(right)),
