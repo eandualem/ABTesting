@@ -7,7 +7,7 @@ __pycache__/
 *.so
 *~
 .ipynb_checkpoints
-
+env
 
 # due to using tox and pytest
 .tox

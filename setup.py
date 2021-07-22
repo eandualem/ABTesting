@@ -30,7 +30,7 @@ setup(
     packages=find_packages(include=['scripts', 'scripts.*']),
     test_suite='tests',
     tests_require=test_requirements,
-    url='https://github.com/eandualem/a-b-testing',
+    url='https://github.com/eandualem/ABTesting',
     version='0.1.0',
     zip_safe=False,
 )

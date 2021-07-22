@@ -10,7 +10,6 @@ def get_console_handler():
     console_handler.setFormatter(FORMATTER)
     return console_handler
 
-
 def get_file_handler():
     file_handler = TimedRotatingFileHandler(LOG_FILE, when='midnight')
     file_handler.setFormatter(FORMATTER)
